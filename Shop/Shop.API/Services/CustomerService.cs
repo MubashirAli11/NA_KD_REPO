@@ -21,7 +21,7 @@ namespace Shop.API.Services
                 var response = await _service.CreateCustomer(createCustomerRequest);
 
                 if (response.Item1 != null && !String.IsNullOrEmpty(response.Item1.Id))
-                    return ApiResponse.ReturnCreatedResponse("Customer created", $"{_getCustomerWithWishListEndPoint}/{response.Item1.Id}");
+                    return ApiResponse.ReturnCreatedResponse("Customer created", $"{_getCustomerWithWishListEndPoint.Replace("{customer_id}", response.Item1.Id)}");
 
                 else if (response.Item2 == (int)System.Net.HttpStatusCode.Unauthorized)
                     return ApiResponse.CreateUnauthorizeResponse();

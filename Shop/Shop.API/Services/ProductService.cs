@@ -22,7 +22,7 @@ namespace Shop.API.Services
                 var response = await _service.AddProductToWishList(addProductToWishListRequest);
 
                 if (response.Item1 != null && String.IsNullOrEmpty(response.Item1.Id))
-                    return ApiResponse.ReturnCreatedResponse("Product added to wish list", $"{_addProductToWishListEndPoint}/{response.Item1.Id}");
+                    return ApiResponse.ReturnCreatedResponse("Product added to wish list", $"{_addProductToWishListEndPoint.Replace("customer_id", response.Item1.Id)}");
 
                 else if (response.Item2 == (int)System.Net.HttpStatusCode.Unauthorized)
                     return ApiResponse.CreateUnauthorizeResponse();
