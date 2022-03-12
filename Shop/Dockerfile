@@ -1,21 +1,22 @@
+
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["UserManagement.API/UserManagement.API.csproj", "UserManagement.API/"]
-COPY ["UserManagement.Core/UserManagement.Core.csproj", "UserManagement.Core/"]
-COPY ["UserManagement.Infrastructure/UserManagement.Infrastructure.csproj", "UserManagement.Infrastructure/"]
-RUN dotnet restore "UserManagement.API/UserManagement.API.csproj"
+COPY ["Shop.API/Shop.API.csproj", "Shop.API/"]
+COPY ["Shop.Core/Shop.Core.csproj", "Shop.Core/"]
+COPY ["Shop.Infrastructure/Shop.Infrastructure.csproj", "Shop.Infrastructure/"]
+RUN dotnet restore "Shop.API/Shop.API.csproj"
 COPY . .
-WORKDIR "/src/UserManagement.API"
-RUN dotnet build "UserManagement.API.csproj" -c Release -o /app/build
+WORKDIR "/src/Shop.API"
+RUN dotnet build "Shop.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "UserManagement.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "Shop.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "UserManagement.API.dll"]
+ENTRYPOINT ["dotnet", "Shop.API.dll"]

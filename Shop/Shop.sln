@@ -4,16 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0DCF43B7-4590-44DF-8DBC-966244AAC58E}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.API", "Shop.API\Shop.API.csproj", "{3550CD85-83C8-4B71-87C0-4E83EB599777}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Infrastructure", "Shop.Infrastructure\Shop.Infrastructure.csproj", "{1579805F-6F5E-4604-BEC5-9FC4B92E181D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Infrastructure", "Shop.Infrastructure\Shop.Infrastructure.csproj", "{1579805F-6F5E-4604-BEC5-9FC4B92E181D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Core", "Shop.Core\Shop.Core.csproj", "{0B23985E-9BF8-4363-9D4C-98FFB1E1E426}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Core", "Shop.Core\Shop.Core.csproj", "{0B23985E-9BF8-4363-9D4C-98FFB1E1E426}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7235FCB8-1E72-4E0F-A870-ABE087427383}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.UnitTest", "Shop.UnitTest\Shop.UnitTest.csproj", "{C6C41795-D253-43E1-B9BE-16B92764B3DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.UnitTest", "Shop.UnitTest\Shop.UnitTest.csproj", "{C6C41795-D253-43E1-B9BE-16B92764B3DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
