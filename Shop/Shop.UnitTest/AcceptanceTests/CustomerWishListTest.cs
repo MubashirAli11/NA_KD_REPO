@@ -18,20 +18,37 @@ namespace Shop.UnitTest.AcceptanceTests
 {
     public class CustomerWishListTest
     {
+        /// <summary>
+        /// Create a customer
+        /// Add product to customer wishlist so that I will be able to check customer wishlist
+        /// Delete a product from customer wishlist so that I can check there is no product in customer wish list
+        /// </summary>
         [Fact]
         public async void CustomerWishListAcceptanceTest()
         {
 
             var customerId = await CreateCustomer();
+            
+            //Check if customer is created successfully
+            Assert.NotNull(customerId);
+            Assert.NotEmpty(customerId);
+
+
 
             var productId = Guid.NewGuid().ToString();
 
+            //Check if product is created successfully
+            Assert.NotNull(productId);
+            Assert.NotEmpty(productId);
+
             await AddProductToWishList(customerId, productId);
 
+            //Check if product is added in customer wishlist
             Assert.True(await ProductExistInCustomerWishList(customerId, productId));
 
             await DeleteProductFromWishList(customerId, productId);
 
+            //Check if product is deleted from customer wishlist
             Assert.False(await ProductExistInCustomerWishList(customerId, productId));
 
         }

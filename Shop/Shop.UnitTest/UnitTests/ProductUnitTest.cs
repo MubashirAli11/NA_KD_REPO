@@ -48,6 +48,9 @@ namespace Shop.UnitTest.UnitTests
             Assert.True(response.IsSuccess);
             Assert.Equal(response.StatusCode, (int)System.Net.HttpStatusCode.Created);
             Assert.NotNull(response.Data);
+
+            //This test should return product id as specified in the API documentation but it is 
+            //returning no content
         }
 
 
@@ -78,6 +81,8 @@ namespace Shop.UnitTest.UnitTests
             //Assert
 
             Assert.True(response.IsSuccess);
+
+            //This API should return success response but it is returning no content
         }
 
 
